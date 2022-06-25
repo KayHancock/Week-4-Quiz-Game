@@ -1,0 +1,47 @@
+body {
+    background-color: blue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    color: white;
+    margin: 10px;
+}
+
+#qbox {
+
+    background-color: white;
+    color: black;
+    width: 800px;
+    max-width: 80%;
+    height: 800px;
+    max-height: 80%;
+    border-radius: 10%;
+    margin: 50px;
+
+}
+
+.btn {
+    border: 1px solid black;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+}
+
+#timer  {
+    font-weight: bold;
+}
+
+#view {
+    font-weight: bold;
+
+}
