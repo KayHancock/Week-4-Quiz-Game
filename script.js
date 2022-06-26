@@ -2,7 +2,7 @@
 var time = document.getElementById("timer");
 var startBtn = document.getElementById("sbtn");
 var resetBtn = document.getElementById("rebtn");
-var answer = document.querySelectorAll("#qbtn")
+var answer = Array.from(document.querySelectorAll("#qbtn"));
 var highScore = document.getElementById("view");
 var questionEl = document.getElementById("q");
 var secondsLeft = 30
@@ -13,7 +13,9 @@ const questions = [
       question: 'What is 2 + 2?',
       answers: [
         { text: '4', correct: true },
-        { text: '22', correct: false }
+        { text: '22', correct: false },
+        { text: '37', correct: false },
+        { text: '8', correct: false }
       ]
     },
     {
@@ -52,13 +54,15 @@ function startGame () {
 }
 
 function resetGame () {
-    questionEl.textContent = "Play again?"
+  console.log("the reset button works")  
+  questionEl.textContent = "Play again?"
     resetBtn.style.display = "none";
     console.log(answer)
+    answer.classList.add("hide");
 
-    if (answer.style.display === 'flex') {
-        answer.style.visibility = 'none'
-    }
+    // if (answer.style.display === 'flex') {
+    //     answer.style.display = 'none'
+    // }
 }
 
 function setTime() {
