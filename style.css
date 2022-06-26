@@ -13,6 +13,7 @@ body {
 article {
     color: white;
     margin: 10px;
+ 
 }
 
 #qbox {
@@ -21,11 +22,14 @@ article {
     color: black;
     width: 800px;
     max-width: 80%;
-    height: 800px;
+    height: 500px;
     max-height: 80%;
     border-radius: 10%;
-    margin: 50px;
-
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn {
