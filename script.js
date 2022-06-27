@@ -2,7 +2,8 @@
 var time = document.getElementById("timer");
 var startBtn = document.getElementById("sbtn");
 var resetBtn = document.getElementById("rebtn");
-var answer = Array.from(document.querySelectorAll("#qbtn"));
+var backBtn = document.getElementById("bkbtn");
+var answer = document.querySelectorAll(".qbtn");
 var highScore = document.getElementById("view");
 var questionEl = document.getElementById("q");
 var secondsLeft = 30
@@ -10,59 +11,96 @@ var secondsLeft = 30
 //Questions
 const questions = [
     {
-      question: 'What is 2 + 2?',
+      question: 'what does CSS stand for?',
       answers: [
-        { text: '4', correct: true },
-        { text: '22', correct: false },
-        { text: '37', correct: false },
-        { text: '8', correct: false }
+        { text: 'Charlie Sierra Sierra', correct: false },
+        { text: 'Coding Security System', correct: false },
+        { text: 'Cascading Style Sheets', correct: true },
+        { text: 'Calibra Syntax System', correct: false }
       ]
     },
     {
-      question: 'Who is the best YouTuber?',
+      question: 'What does HTML do?',
       answers: [
-        { text: 'Web Dev Simplified', correct: true },
-        { text: 'Traversy Media', correct: true },
-        { text: 'Dev Ed', correct: true },
-        { text: 'Fun Fun Function', correct: true }
+        { text: 'Connect to the internet', correct: false },
+        { text: 'Add responsiveness', correct: false },
+        { text: 'Add colors', correct: false },
+        { text: 'Structure a website', correct: true }
       ]
     },
     {
-      question: 'Is web development fun?',
+      question: 'What is a UI?',
       answers: [
-        { text: 'Kinda', correct: false },
-        { text: 'YES!!!', correct: true },
-        { text: 'Um no', correct: false },
-        { text: 'IDK', correct: false }
+        { text: 'Unemployment Insurance', correct: true },
+        { text: 'User Interface', correct: true },
+        { text: 'Utility Interval', correct: false },
+        { text: 'Unauthorized Icon', correct: false }
       ]
     },
     {
-      question: 'What is 4 * 2?',
+      question: 'What is the best way to debug?',
       answers: [
-        { text: '6', correct: false },
-        { text: '8', correct: true }
+        { text: 'Console log', correct: false },
+        { text: 'Go to a QA professional', correct: false },
+        { text: 'Talk to a rubber duck', correct: false },
+        { text: 'All of the above', correct: true }
+      ]
+    },
+    {
+      question: 'Which OS is superior?',
+      answers: [
+        { text: 'Ubuntu', correct: true },
+        { text: 'Mac', correct: true },
+        { text: 'Windows', correct: true },
+        { text: 'DOS', correct: true }
       ]
     }
+
   ]
 
 
 //Functions
+function loadScreen () {
+  startBtn.style.display = "initial";
+  resetBtn.style.display = "none";
+  backBtn.style.display = "none";
+  for (var i = 0; i <answer.length; i++) {
+    answer[i].classList.add("hide");
+  }
+  questionEl.textContent = "Coding Quiz Game"
+
+}
+
 function startGame () {
     startBtn.style.display = "none";
     shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
+    currentQuestionIndex = 0
+    showQuestion()
 }
 
 function resetGame () {
   console.log("the reset button works")  
   questionEl.textContent = "Play again?"
     resetBtn.style.display = "none";
+    backBtn.style.display = "none";
+    startBtn.style.display = "initial";
     console.log(answer)
-    answer.classList.add("hide");
+    for (var i = 0; i <answer.length; i++) {
+      answer[i].classList.add("hide");
+    }
 
-    // if (answer.style.display === 'flex') {
-    //     answer.style.display = 'none'
-    // }
+}
+
+function viewScores () {
+  console.log("the button works") 
+  startBtn.style.display = "none";
+  resetBtn.style.display = "none";
+  backBtn.style.display = "initial";
+  questionEl.textContent = "High Scores"
+  for (var i = 0; i <answer.length; i++) {
+    answer[i].classList.add("hide");
+  } 
+
 }
 
 function setTime() {
@@ -72,13 +110,20 @@ function setTime() {
   
       if(secondsLeft === 0) {
         clearInterval(timerInterval);
-        // Calls function to create and append image
       }
   
     }, 1000);
   }
 
+  function showQuestion() {
+    questionEl.textContent = questions[1].question
+
+  }
+
 
 //Listeners
+addEventListener("load", loadScreen)
 startBtn.addEventListener("click", setTime, startGame);
 resetBtn.addEventListener("click", resetGame);
+highScore.addEventListener("click", viewScores);
+backBtn.addEventListener("click", loadScreen);

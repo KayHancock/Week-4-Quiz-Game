@@ -47,7 +47,10 @@ article {
 
 #view {
     font-weight: bold;
+}
 
+#view:hover {
+    cursor: pointer;
 }
 
 .hide {
