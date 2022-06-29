@@ -18,3 +18,9 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
 ```
+
+## Usage
+
+Click here to access the game: https://kayhancock.github.io/Week-4-Quiz-Game/
+
+Upon loading, the game should look like this: ![Screenshot](.\screenshot.png)
